@@ -132,3 +132,126 @@ exports.resetPassword = catchAysncErrors(async(req,res,next)=>{
 
       sendToken(user, 200,res);
 })
+
+//Get User Details
+exports.getUserDetails = catchAysncErrors( async(req,res,next)=>{
+
+    const user = await User.findById(req.user.id);
+
+    res.status(200).json({
+        success:true,
+        user,
+    });
+});
+
+//Update User password
+exports.updatePassword = catchAysncErrors( async(req,res,next)=>{
+
+    const user = await User.findById(req.user.id).select("+password");
+
+    const isPasswordMatched = await user.comparePassword(req.body.oldPassword);
+
+    if (!isPasswordMatched) {
+       return next(new ErrorHandler("Old password is incorrect",400)); 
+    }
+
+    if (req.body.newPassword !== req.body.confirmPassword) {
+        return next(new ErrorHandler("Password doesnt match",400)); 
+    }
+
+    user.password = req.body.newPassword;
+
+    await user.save();
+
+    sendToken(user, 200,res);
+
+});
+
+//Update User profile
+exports.updateProfile = catchAysncErrors(async(req,res,next) =>{
+     const newUserData1={
+        name:req.body.name,
+        email: req.body.email,
+     }
+
+     //we will cloudnary later
+     const user = await User.findByIdAndUpdate(req.user.id,newUserData1,{
+        new: true,
+        runValidators: true,
+        useFindAndModify: false,
+     });
+
+     if (!user) {
+       return next(new ErrorHandler(`Enter name or email correctly`),400);  
+     }
+     
+     res.status(200).json({
+        success: true,
+     })
+})
+
+//Get all Users
+exports.getAllUser = catchAysncErrors(async(req,res,next) =>{
+    const users = await User.find();
+
+    res.status(200).json({
+        success:true,
+        users,
+    })
+
+})
+
+//Get  single User (admin)
+exports.getSingleUser = catchAysncErrors(async(req,res,next) =>{
+    const user = await User.findById(req.params.id);
+
+    if (!user) {
+        return next(new ErrorHandler(`User doesnt exist with Id: ${req.params.id}`)) 
+    }
+
+    res.status(200).json({
+        success:true,
+        user,
+    })
+
+})
+
+//Update User Role---Admin
+exports.updateUserRole = catchAysncErrors(async(req,res,next) =>{
+    const newUserData ={
+        name:req.body.name,
+        email:req.body.email,
+        role:req.body.role,
+    };
+    //we will add cloudnary later
+    const user = await User.findByIdAndUpdate(req.params.id, newUserData,{
+        new: true,
+        runValidators:true,
+        useFindAndModify: false,
+    });
+
+    if (!user) {
+        return next(new ErrorHandler(`Enter name,email or role corectly: ${req.params.id}`),400);
+    }
+
+    res.status(200).json({
+        success:true,
+    })
+
+})
+
+
+///Delete User --Admin
+exports.deleteUser = catchAysncErrors(async(req,res,next)=>{
+    const user = await User.findByIdAndDelete(req.params.id);
+    //we will remove from cloudnary
+     if (!user) {
+        return next(new ErrorHandler(`user doesn't exist with Id: ${req.params.id}`),400);
+     }
+     
+    res.status(200).json({
+        success:true,
+        message:"User Deleted Successfully!"
+    });
+});
+
