@@ -1,42 +1,122 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+
+*{
+  margin: 0;
+  scroll-behavior: smooth;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
+/* 
+ burgerColorHover= "#eb4034"
+    logo={logo}
+    logoWidth= "20vmax"
+    navColor1="white"
+    logoHoverSize= "10px" 
+    logoHoverColor="#eb4034"
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+    link1Text= "Home"
+    link2Text= "Products"
+    link3Text="Contact"
+    link4Text= "About"
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
+    link1Url= "/"
+    link2Url="/products"
+    link3Url= "/contact"
+    link4Url= "/about"
 
-.card {
-  padding: 2em;
-}
+    link1Size= "1.3vmax"
+    link1Color= "rgba(35, 35, 35,0.8)"
+    nav1justifyContent= "flex-end"
+    nav2justifyContent= "flex-end"
+    nav3justifyContent= "flex-start"
+    nav4justifyContent= "flex-start"
+    link1ColorHover= "#eb4034"
+    link1Margin= "1vmax"
+    profileIconUrl= "/login"
+    profileIconColor= "rgba(35, 35, 35,0.8)"
+    searchIconColor="rgba(35, 35, 35,0.8)"
+    cartIconColor="rgba(35, 35, 35,0.8)"
+    profileIconColorHover="#eb4034"
+    searchIconColorHover= "#eb4034"
+    cartIconColorHover= "#eb4034"
+    cartIconMargin="1vmax"
 
-.read-the-docs {
-  color: #888;
-}
+ */
+
+ /*  burgerColorHover: "#eb4034",
+
+  logo,
+
+  logoWidth: "20vmax",
+
+  navColor1: "white",
+
+  logoHoverSize: "10px",
+
+  logoHoverColor: "#eb4034",
+
+  link1Text: "Home",
+
+  link2Text: "Products",
+
+  link3Text: "Contact",
+
+  link4Text: "About", 
+
+link1Url: "/",
+
+  link2Url: "/products",
+
+  link3Url: "/contact",
+
+  link4Url: "/about",  
+
+  link1Size: "1.3vmax",
+
+  link1Color: "rgba(35, 35, 35,0.8)",
+
+  nav1justifyContent: "flex-end",
+
+  nav2justifyContent: "flex-end",
+
+  nav3justifyContent: "flex-start",
+
+  nav4justifyContent: "flex-start",
+
+  link1ColorHover: "#eb4034",
+
+  link1Margin: "1vmax",
+
+  profileIconUrl: "/login",
+
+  profileIcon:true,
+
+  profileIconColor:"rgba(35, 35, 35,0.8)",
+
+  ProfileIconElement:MdAccountCircle,
+
+  searchIcon:true,
+
+  searchIconColor: "rgba(35, 35, 35,0.8)",
+
+  SearchIconElement:MdSearch,
+
+  cartIcon:true,
+
+  cartIconColor: "rgba(35, 35, 35,0.8)",
+
+  CartIconElement:MdAddShoppingCart,
+
+  profileIconColorHover: "#eb4034",
+
+  searchIconColorHover: "#eb4034",
+
+  cartIconColorHover: "#eb4034",
+
+  cartIconMargin: "1vmax",
+
+ 
+
+};
+
+
+ */
+
